@@ -1,7 +1,29 @@
-diff --git a/sibr-viewer-ori/src/core/raycaster/Raycaster.cpp b/sibr-viewer-test/src/core/raycaster/Raycaster.cpp
+diff --git a/cmake/linux/dependencies.cmake b/cmake/linux/dependencies.cmake
+index 28eb3ba..4a7bd84 100644
+--- a/cmake/linux/dependencies.cmake
++++ b/cmake/linux/dependencies.cmake
+@@ -114,7 +114,7 @@ include_directories(${FFMPEG_INCLUDE_DIR})
+ ## COMMENT OUT ALL FFMPEG FOR CLUSTER
+ 
+ ###################
+-## Find embree3
++## Find embree
+ ###################
+ sibr_addlibrary(
+     NAME embree3
+@@ -124,7 +124,7 @@ sibr_addlibrary(
+ 
+ # CLUSTER
+ #find_package(embree 3.0 REQUIRED PATHS "/data/graphdeco/share/embree/usr/local/lib64/cmake/" )
+-find_package(embree 3.0 )
++find_package(embree 4.0 )
+ 
+ ###################
+ ## Find eigen3
+diff --git a/src/core/raycaster/Raycaster.cpp b/src/core/raycaster/Raycaster.cpp
 index 1733636..dd341b7 100644
---- a/sibr-viewer-ori/src/core/raycaster/Raycaster.cpp
-+++ b/sibr-viewer-test/src/core/raycaster/Raycaster.cpp
+--- a/src/core/raycaster/Raycaster.cpp
++++ b/src/core/raycaster/Raycaster.cpp
 @@ -208,9 +208,9 @@ namespace sibr
  			SIBR_ERR << "cannot initialize embree, failed cast rays." << std::endl;
  		else
@@ -54,10 +76,10 @@ index 1733636..dd341b7 100644
  		}
  
  		std::array<RayHit, 8> res;
-diff --git a/sibr-viewer-ori/src/core/raycaster/Raycaster.hpp b/sibr-viewer-test/src/core/raycaster/Raycaster.hpp
+diff --git a/src/core/raycaster/Raycaster.hpp b/src/core/raycaster/Raycaster.hpp
 index 121b502..dd5063a 100644
---- a/sibr-viewer-ori/src/core/raycaster/Raycaster.hpp
-+++ b/sibr-viewer-test/src/core/raycaster/Raycaster.hpp
+--- a/src/core/raycaster/Raycaster.hpp
++++ b/src/core/raycaster/Raycaster.hpp
 @@ -13,8 +13,8 @@
  #pragma once
  
@@ -69,10 +91,10 @@ index 121b502..dd5063a 100644
  #  include <xmmintrin.h>	// functions for setting the control register
  #  include <pmmintrin.h>	// functions for setting the control register
  # pragma warning(pop)
-diff --git a/sibr-viewer-ori/src/core/video/FFmpegVideoEncoder.cpp b/sibr-viewer-test/src/core/video/FFmpegVideoEncoder.cpp
+diff --git a/src/core/video/FFmpegVideoEncoder.cpp b/src/core/video/FFmpegVideoEncoder.cpp
 index d908531..1cb9bcd 100644
---- a/sibr-viewer-ori/src/core/video/FFmpegVideoEncoder.cpp
-+++ b/sibr-viewer-test/src/core/video/FFmpegVideoEncoder.cpp
+--- a/src/core/video/FFmpegVideoEncoder.cpp
++++ b/src/core/video/FFmpegVideoEncoder.cpp
 @@ -43,7 +43,6 @@ namespace sibr {
  			SIBR_LOG << "[FFMPEG] Registering all." << std::endl;
  			// Ignore next line warning.
@@ -178,10 +200,10 @@ index d908531..1cb9bcd 100644
  			av_packet_unref(pkt);
  		}
  
-diff --git a/sibr-viewer-ori/src/core/video/VideoUtils.hpp b/sibr-viewer-test/src/core/video/VideoUtils.hpp
+diff --git a/src/core/video/VideoUtils.hpp b/src/core/video/VideoUtils.hpp
 index e79dac1..21e80f3 100644
---- a/sibr-viewer-ori/src/core/video/VideoUtils.hpp
-+++ b/sibr-viewer-test/src/core/video/VideoUtils.hpp
+--- a/src/core/video/VideoUtils.hpp
++++ b/src/core/video/VideoUtils.hpp
 @@ -937,10 +937,10 @@ namespace sibr {
  
  		uint getModeIndice() const {
@@ -197,25 +219,3 @@ index e79dac1..21e80f3 100644
  				}
  			}
  			return mode;
-diff --git a/sibr-viewer-ori/cmake/linux/dependencies.cmake b/sibr-viewer-test/cmake/linux/dependencies.cmake
-index 28eb3ba..4a7bd84 100644
---- a/sibr-viewer-ori/cmake/linux/dependencies.cmake
-+++ b/sibr-viewer-test/cmake/linux/dependencies.cmake
-@@ -114,7 +114,7 @@ include_directories(${FFMPEG_INCLUDE_DIR})
- ## COMMENT OUT ALL FFMPEG FOR CLUSTER
- 
- ###################
--## Find embree3
-+## Find embree
- ###################
- sibr_addlibrary(
-     NAME embree3
-@@ -124,7 +124,7 @@ sibr_addlibrary(
- 
- # CLUSTER
- #find_package(embree 3.0 REQUIRED PATHS "/data/graphdeco/share/embree/usr/local/lib64/cmake/" )
--find_package(embree 3.0 )
-+find_package(embree 4.0 )
- 
- ###################
- ## Find eigen3
