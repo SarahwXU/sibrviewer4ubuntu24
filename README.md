@@ -22,5 +22,11 @@ extlibs/CudaRasterizer/CudaRasterizer/cuda_rasterizer/rasterizer_impl.h, has to 
 #include <cstdint>
 ```
 
-Most code coming from https://github.com/graphdeco-inria/gaussian-splatting/issues/923#issue-2447623144. However, on ubuntu24.04, the export video cannot be used. Thus, I further modified src/core/video/FFmpegVideoEncoder.cpp. The patch file is 
+Most code coming from https://github.com/graphdeco-inria/gaussian-splatting/issues/923#issue-2447623144. However, on ubuntu24.04, the export video cannot be used. Thus, I further modified src/core/video/FFmpegVideoEncoder.cpp. The patch file is [sibr_diff.patch](https://github.com/SarahwXU/sibrviewer4ubuntu24/blob/948ef34cd8c407a87fbc007bd1b7b29238001f54/sibr_diff.patch).
+
+```
+git apply sibr_diff.patch
+```
+
+
 
